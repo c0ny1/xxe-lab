@@ -1,8 +1,8 @@
 #coding=utf-8
 
 '''
-autor: c0ny1
-date: 2018-2-7
+autor: c0ny1 and NNanfeng
+date: 2022-11-17
 '''
 
 from flask import Flask, request, url_for, render_template, redirect
@@ -32,13 +32,13 @@ def doLogin():
             result = "<result><code>%d</code><msg>%s</msg></result>" % (1,username)
         else:
             result = "<result><code>%d</code><msg>%s</msg></result>" % (0,username)
-    except Exception,e:
+    except Exception as e:
         result = "<result><code>%d</code><msg>%s</msg></result>" % (3,e.message)
 	
     return result,{'Content-Type': 'text/xml;charset=UTF-8'}
 
 def prn_obj(obj):
-    print '\n'.join(['%s:%s' % item for item in obj.__dict__.items()])
+    print ('\n'.join(['%s:%s' % item for item in obj.__dict__.items()]))
 
 if __name__ == "__main__":
     app.run()
